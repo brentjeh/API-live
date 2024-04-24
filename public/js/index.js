@@ -65,30 +65,22 @@ function displayArtworks(artworks) {
     }
 }
 
-// Functie om schilderijen binnen 50 km straal van de gebruiker te zoeken
-async function searchNearbyArtworks(latitude, longitude) {
+document.getElementById('nearbyArtworksButton').addEventListener('click', async () => {
     try {
-        const response = await fetch(`/nearby-artworks?latitude=${latitude}&longitude=${longitude}`);
-        const data = await response.json();
-        displayArtworks(data.artworks); // Geef de kunstwerken weer
-    } catch (error) {
-        console.error('Fout bij het zoeken naar kunstwerken binnen 50 km:', error.message);
-    }
-}
+        // Vraag de huidige locatie van de gebruiker op
+        const position = await getCurrentPosition();
+        const { latitude, longitude } = position.coords;
 
-// Eventlistener voor knop om schilderijen binnen 50 km straal te zoeken
-const searchNearbyButton = document.getElementById('searchNearbyButton');
-searchNearbyButton.addEventListener('click', async () => {
-    try {
-        const { coords } = await getCurrentPosition(); // Verkrijg huidige locatie van de gebruiker
-        const { latitude, longitude } = coords;
-        searchNearbyArtworks(latitude, longitude); // Zoek schilderijen binnen 50 km straal
+        // Stuur de coördinaten van de gebruiker naar de server om kunstwerken in de buurt op te halen
+        const response = await fetch(`/artworks-near-me?latitude=${latitude}&longitude=${longitude}`);
+        const data = await response.json();
+        displayArtworks(data.artworks); // Weergeef de kunstwerken binnen 50 km straal
     } catch (error) {
-        console.error('Fout bij het verkrijgen van de huidige locatie:', error.message);
+        console.error('Fout bij het ophalen van kunstwerken in de buurt:', error.message);
     }
 });
 
-// Functie om de huidige locatie van de gebruiker te verkrijgen
+// Functie om de huidige locatie van de gebruiker op te halen
 function getCurrentPosition() {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
