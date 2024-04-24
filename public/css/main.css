@@ -1,0 +1,560 @@
+@import url("https://use.typekit.net/hfy4tgp.css");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+/* Index EJS */
+
+.index-ejs {
+}
+
+.index-ejs nav {
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.index-ejs nav h2 {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+}
+
+.index-ejs nav h2 a {
+    color: #131313;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.index-ejs nav h2 a:hover {
+    color: #949494;
+    border: 0px 0px 0px 2px solid #949494;
+}
+
+.index-ejs nav .searchButton {
+    display: none;
+    background-color: #0652DD;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 100px;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.index-ejs nav .searchButton:hover {
+    background-color: #83A9EE;
+    color: #ffffff;
+}
+
+.index-ejs nav input[type=text] {
+    padding: 14px 24px;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    background-color: #f5f5f5;
+    transition-duration: 0.3s;
+}
+
+.index-ejs nav input[type=text]:focus {
+    background-color: #E4E4E4;
+}
+
+.index-ejs nav input[type=text]:active {
+    background-color: #E4E4E4;
+}
+
+.index-ejs .container {
+    padding: 14px 30px 30px 30px;
+}
+
+.index-ejs .container ul {
+    columns: 5;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.index-ejs .container li {
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    border-radius: 20px;
+}
+
+.index-ejs .container li:hover {
+    background-color: #E4E4E4;
+    outline: 2px solid #131313;
+    outline-offset: 2px;
+}
+
+.index-ejs .container li:active {
+    background-color: #E4E4E4;
+    outline: 0px;
+}
+
+.index-ejs .container li a {
+    text-decoration: none;
+    color: #131313;
+}
+
+.index-ejs .container ul img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: -4px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.index-ejs .container ul h2 {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 30px 30px 30px 30px;
+    line-height: 150%;
+    font-size: 20px;
+}
+
+.index-ejs .container ul p {
+    color: #828282;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 170%;
+    padding-top: 20px;
+}
+
+.index-ejs .container .maker-p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.index-ejs .container .maker {
+    
+}
+
+.index-ejs .container ul .artwork-item {
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Artwork EJS */
+
+.artwork-ejs nav {
+    position: sticky;
+    inset: 0 0 auto;
+}
+
+.artwork-ejs .scroll-tracker {
+    height: 0.4rem;
+    z-index: 101;
+    background-color: #74b9ff;
+    transform-origin: left;
+}
+
+.artwork-ejs nav h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    height: 80px;
+    padding: 0px 30px;
+    background-color: white;
+    margin-top: -0.4rem;
+}
+
+.artwork-ejs nav h2 a {
+    color: #131313;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.artwork-ejs nav h2 a:hover {
+    color: #949494;
+    border: 0px 0px 0px 2px solid #949494;
+}
+
+.artwork-ejs .container {
+}
+
+.artwork-ejs .artwork-details {
+    
+}
+
+.artwork-ejs .artwork-details img {
+    width: calc(50vw - 40px);
+    object-fit: cover;
+    height: calc(100vh - 140px);
+    margin: 30px;
+    border-radius: 20px;
+}
+
+.artwork-ejs .artwork-details .header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+}
+
+.artwork-ejs .artwork-details .header h1 {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 90px;
+    line-height: 100%;
+    letter-spacing: -1px;
+    padding: 0 40px;
+}
+
+.artwork-ejs .artwork-details .contents {
+    display: block;
+    width: 60vw;
+    padding: 30px;
+}
+
+.artwork-ejs .artwork-details .contents p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    line-height: 170%;
+    padding: 30px 30px;
+    margin: 10px 0;
+    border-radius: 20px;
+    border: solid 2px #f5f5f5;
+}
+
+.artwork-ejs .artwork-details .contents .meer-info {
+    padding: 15px 30px;
+}
+
+.artwork-ejs .artwork-details .contents p .content {
+    width: calc(100% - 360px);
+}
+
+.artwork-ejs .artwork-details .contents .meer-info .maker.info {
+    margin-left: 60px;
+    font-size: 18px;
+}
+
+.artwork-ejs .artwork-details .contents .meer-info .maker.content {
+    margin-left: 60px;
+    font-size: 18px;
+}
+
+.artwork-ejs .artwork-details .contents p .maker.content.naam {
+    font-size: 22px;
+}
+
+
+
+/* Scroll Tracker */
+
+
+
+
+/* No Results Message */
+
+#noResultsMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 80px);
+    height: calc(100vh - 240px);
+    font-size: 60px;
+}
+
+
+
+/* Artwork List */
+
+#artworksList p {
+    padding: 0px 30px 30px 30px;
+}
+
+
+
+
+@media (max-width: 1024px) {
+
+    .index-ejs .container ul {
+        columns: 3;
+        gap: 20px;
+        list-style-type: none;
+    }
+
+
+    .index-ejs nav h2, .artwork-ejs nav h2 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+    }
+
+    .index-ejs nav input[type=text] {
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        border-radius: 100px;
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        background-color: #f5f5f5;
+        transition-duration: 0.3s;
+    }
+
+    .index-ejs .container ul h2 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding: 25px;
+        line-height: 150%;
+        font-size: 18px;
+    }
+
+
+
+
+
+    .artwork-ejs .artwork-details .header {
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 30px;
+    }
+
+    .artwork-ejs .artwork-details img {
+        width: 100%;
+        object-fit: cover;
+        height: calc(100vh - 300px);
+        margin: 30px;
+        border-radius: 20px;
+    }
+
+    .artwork-ejs .artwork-details .header h1 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 32px;
+        line-height: 100%;
+        letter-spacing: -1px;
+        padding: 0 30px 30px 30px;
+    }
+
+    .artwork-ejs .artwork-details .contents {
+        display: block;
+        width: calc(100% - 60px);
+        padding: 30px;
+    }
+
+    .artwork-ejs .artwork-details .contents p {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        line-height: 170%;
+        padding: 30px 30px;
+        margin: 10px 0;
+        border-radius: 20px;
+        border: solid 2px #f5f5f5;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info {
+        padding: 15px 30px;
+    }
+    
+    .artwork-ejs .artwork-details .contents p .content {
+        width: 100%;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info .maker.info {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info .maker.content {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    
+    .artwork-ejs .artwork-details .contents p .maker.content.naam {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .index-ejs nav {
+        padding: 0px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        background-color: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .index-ejs .container {
+        padding: 4px 20px 20px 20px;
+    }
+
+    .index-ejs .container ul {
+        columns: 1;
+        gap: 20px;
+        list-style-type: none;
+    }
+
+    .index-ejs nav h2, .artwork-ejs nav h2 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        padding: 0px;
+    }
+
+    .index-ejs nav input[type=text] {
+        padding: 10px 16px;
+        border: none;
+        outline: none;
+        border-radius: 100px;
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        background-color: #f5f5f5;
+        transition-duration: 0.3s;
+    }
+
+    .index-ejs .container ul h2 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding: 20px;
+        line-height: 150%;
+        font-size: 16px;
+    }
+
+    .index-ejs .container ul img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: -4px;
+        border-radius: 0px 0px 20px 20px;
+    }
+
+
+
+
+
+    .artwork-ejs nav h2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 14px;
+        height: 60px;
+        padding: 0px 20px;
+        background-color: white;
+        margin-top: -0.4rem;
+    }
+
+    .artwork-ejs .artwork-details .header {
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .artwork-ejs .artwork-details img {
+        width: 100%;
+        object-fit: cover;
+        height: calc(100vh - 300px);
+        margin: 30px;
+        border-radius: 20px;
+    }
+
+    .artwork-ejs .artwork-details .header h1 {
+        font-family: "aktiv-grotesk", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 32px;
+        line-height: 100%;
+        letter-spacing: -1px;
+        padding: 0 40px 40px 40px;
+    }
+
+    .artwork-ejs .artwork-details .contents {
+        display: block;
+        width: calc(100% - 40px);
+        padding: 20px;
+    }
+
+    .artwork-ejs .artwork-details .contents p {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        line-height: 170%;
+        padding: 30px 30px;
+        margin: 10px 0;
+        border-radius: 20px;
+        border: solid 2px #f5f5f5;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info {
+        padding: 15px 30px;
+    }
+    
+    .artwork-ejs .artwork-details .contents p .content {
+        width: 100%;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info .maker.info {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    
+    .artwork-ejs .artwork-details .contents .meer-info .maker.content {
+        margin-left: 20px;
+        font-size: 14px;
+    }
+    
+    .artwork-ejs .artwork-details .contents p .maker.content.naam {
+        font-size: 16px;
+    }
+
+}

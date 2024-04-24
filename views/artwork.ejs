@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= artwork.title %></title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="artwork-ejs">
+
+    <nav>
+        <div class="scroll-tracker"></div>
+        <h2><a href="/" id="homeLink">Rijks Museum Database</a></h2>
+    </nav>
+
+    <div class="container">
+        <div class="artwork-details">
+            <div class="header">
+                <img src="<%= artwork.webImage.url %>" alt="<%= artwork.title %>">
+                <h1><%= artwork.title %></h1>
+            </div>
+            <div class="contents">
+                <p><span class="maker">Maker</span><span class="maker content naam"> <%= artwork.principalMakers[0].name %></span></p>
+                <p class="meer-info"><span class="maker info">Geboorteplek</span><span class="maker content"> <%= artwork.principalMakers[0].placeOfBirth %></span></p>
+                <p class="meer-info"><span class="maker info">Geboortedatum</span><span class="maker content"> <%= artwork.principalMakers[0].dateOfBirth %></span></p>
+                <p class="meer-info"><span class="maker info">Sterfplek</span><span class="maker content"> <%= artwork.principalMakers[0].placeOfDeath %></span></p>
+                <p class="meer-info"><span class="maker info">Sterfdatum</span><span class="maker content"> <%= artwork.principalMakers[0].dateOfDeath %></span></p>
+                <p class="meer-info"><span class="maker info">Bezigheid</span><span class="maker content"> <%= artwork.principalMakers[0].occupation %></span></p>
+                <p><span class="beschrijving">Beschrijving</span><span class="content"> <%= artwork.description %> </span></p>
+                <p><span class="jaar-van-creatie">Jaar van creatie</span><span class="content"> <%= artwork.dating.presentingDate %> </span></p>
+                <p><span class="materials">Materialen gebruikt</span><span class="content"> <%= artwork.materials %> </span></p>
+                <p><span class="acquisition">Herkomst</span><span class="content"> <%= artwork.acquisition.creditLine %> </span></p>          
+                <p><span class="collectie">Collectie</span><span class="content"> <%= artwork.objectCollection %> </span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/index.js" type="module"></script>
+    
+</body>
+</html>
