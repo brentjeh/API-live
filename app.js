@@ -78,6 +78,52 @@ app.get('/search', async (req, res) => {
     }
 });
 
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius van de aarde in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c; // Afstand in kilometers
+    return distance;
+}
+
+// Endpoint voor het verkrijgen van schilderijen binnen 50 km straal van de gebruiker
+app.get('/nearby-artworks', async (req, res) => {
+    try {
+        const { latitude, longitude } = req.query; // Ontvang de locatiegegevens van de gebruiker
+        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&type=schilderij&ps=40`);
+        const artworks = response.data.artObjects.map(artwork => ({
+            title: artwork.title,
+            maker: artwork.principalOrFirstMaker,
+            imageUrl: artwork.webImage.url,
+            id: artwork.objectNumber, // Voeg de ID van elk schilderij toe
+            productionPlaces: artwork.productionPlaces // Voeg productieplaatsen toe aan het schilderij
+        }));
+
+        // Filter de schilderijen op basis van de productieplaatsen binnen 50 km straal van de gebruiker
+        const nearbyArtworks = artworks.filter(artwork => {
+            if (!artwork.productionPlaces || artwork.productionPlaces.length === 0) {
+                return false; // Als er geen productieplaatsen zijn, sla dit schilderij over
+            }
+            // Controleer of ten minste één productieplaats binnen 50 km van de gebruiker ligt
+            return artwork.productionPlaces.some(place => {
+                // Veronderstel dat plaats een array [latitude, longitude] is
+                const [placeLat, placeLon] = place;
+                const distance = calculateDistance(latitude, longitude, placeLat, placeLon);
+                return distance <= 50; // Controleer of de afstand binnen 50 km is
+            });
+        });
+
+        res.json({ artworks: nearbyArtworks }); // Stuur kunstwerken binnen 50 km terug als JSON
+    } catch (error) {
+        console.error('Fout bij het ophalen van kunstwerken binnen 50 km:', error.message);
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van de kunstwerken binnen 50 km' });
+    }
+});
+
 // Luister op poort
 app.listen(port, () => console.info(`Luisterende op poort ${port}`));
 
