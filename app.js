@@ -78,39 +78,6 @@ app.get('/search', async (req, res) => {
     }
 });
 
-// Voeg de Geolocation API toe
-app.get('/artworks-near-me', async (req, res) => {
-    try {
-        const { latitude, longitude } = req.query;
-
-        // Haal de lijst met alle kunstwerken op van het Rijksmuseum
-        const response = await axios.get(`https://www.rijksmuseum.nl/api/nl/collection?key=${rijksmuseumApiKey}&type=schilderij&ps=40`);
-        const artworks = response.data.artObjects;
-
-        // Filter kunstwerken op basis van productieplaats binnen 50 km straal
-        const nearbyArtworks = artworks.filter(artwork => {
-            if (artwork.productionPlaces && artwork.productionPlaces.length > 0) {
-                for (const place of artwork.productionPlaces) {
-                    // Hier zou je een API kunnen gebruiken die coördinaten voor plaatsen ophaalt
-                    // Laten we het hier eenvoudig houden en alleen de kunstwerken retourneren met bekende productieplaatsen
-                    if (place === 'Amsterdam') { // Voorbeeld: controleer of de plaats 'Amsterdam' is
-                        // Bereken de afstand tussen de gebruiker en de productieplaats van het kunstwerk
-                        // Als de afstand kleiner is dan 50 km, retourneer dan true
-                        // Zo niet, retourneer dan false
-                        return true;
-                    }
-                }
-            }
-            return false;
-        });
-
-        res.json({ artworks: nearbyArtworks }); // Retourneer de kunstwerken binnen 50 km straal
-    } catch (error) {
-        console.error('Fout bij het ophalen van kunstwerken in de buurt:', error.message);
-        res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van de kunstwerken in de buurt' });
-    }
-});
-
 // Luister op poort
 app.listen(port, () => console.info(`Luisterende op poort ${port}`));
 

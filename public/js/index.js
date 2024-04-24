@@ -65,28 +65,6 @@ function displayArtworks(artworks) {
     }
 }
 
-document.getElementById('nearbyArtworksButton').addEventListener('click', async () => {
-    try {
-        // Vraag de huidige locatie van de gebruiker op
-        const position = await getCurrentPosition();
-        const { latitude, longitude } = position.coords;
-
-        // Stuur de coördinaten van de gebruiker naar de server om kunstwerken in de buurt op te halen
-        const response = await fetch(`/artworks-near-me?latitude=${latitude}&longitude=${longitude}`);
-        const data = await response.json();
-        displayArtworks(data.artworks); // Weergeef de kunstwerken binnen 50 km straal
-    } catch (error) {
-        console.error('Fout bij het ophalen van kunstwerken in de buurt:', error.message);
-    }
-});
-
-// Functie om de huidige locatie van de gebruiker op te halen
-function getCurrentPosition() {
-    return new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
-}
-
 // Kunstwerken automatisch laden wanneer de pagina wordt geladen
 window.addEventListener('DOMContentLoaded', () => {
     // Laad kunstwerken wanneer de pagina wordt geladen
